@@ -84,7 +84,7 @@ int localizarABB(arbol *a,char codigo[], int f)
     }else{
         if(f == 2){
             if(a->celCont > a->eExMax){
-                a->eExMax =a->celCont;
+                a->eExMax =a->celCont+1;
             }
             a->eExCant++;
             a->costoacumEE += a->celCont;

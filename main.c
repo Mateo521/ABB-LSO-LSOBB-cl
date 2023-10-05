@@ -160,29 +160,44 @@ int LecturaOperaciones(lso *lso,arbol *arbol, lsobb *lsobb)
     Envio aux;
     FILE* fp;
 
-    if ((fp = fopen(/*"Operaciones-Envios.txt"*/"C:/Users/mateo/OneDrive/Escritorio/TP2-Grupo14Clion/Operaciones-Envios.txt", "r")) == NULL)
+    if ((fp = fopen(/*"Operaciones-Envios.txt"*/"C:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/Operaciones-Envios.txt", "r")) == NULL)
     {
         printf("No se pudo abrir el archivo");
         return 0;
     }
     else
     {
-        int codigoOperador=0, contadorEnvios=0;
+        int codigoOperador=0, contadorEnvios=0,i;
         while (!(feof(fp))&&contadorEnvios<=MAX_Envios)
         {
 
 
             fscanf(fp, "%d", &codigoOperador);
+
+
             fscanf(fp, " %[^\n]", aux.codigo);
+             for(i=0;i<=8;i++){
+                aux.codigo[i]=toupper(aux.codigo[i]);
+            }
             if (codigoOperador == 1 || codigoOperador == 2)
             {
 
                 // Leer y procesar los datos para Alta o Baja
                 fscanf(fp, "%d", &aux.dni_receptor);
+
                 fscanf(fp, " %[^\n]", aux.nombre);
+                 for(i=0;i<=strlen(aux.nombre);i++){
+                aux.nombre[i]=toupper(aux.nombre[i]);
+            }
                 fscanf(fp, " %[^\n]", aux.direccion);
+                  for(i=0;i<=strlen(aux.direccion);i++){
+                aux.direccion[i]=toupper(aux.direccion[i]);
+            }
                 fscanf(fp, "%d", &aux.dni_remitente);
                 fscanf(fp, " %[^\n]", aux.nombre_r);
+                  for(i=0;i<=strlen(aux.nombre_r);i++){
+                aux.nombre_r[i]=toupper(aux.nombre_r[i]);
+            }
                 fscanf(fp, " %[^\n]", aux.fecha_envio);
                 fscanf(fp, " %[^\n]", aux.fecha_recepcion);
 
