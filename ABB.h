@@ -163,7 +163,7 @@ int bajaABB(arbol *a,Envio envio)
 
                     else
                         (*a).raiz = aux;
-                    a->costobajatemp+= 1;
+                    a->costobajatemp+= 0.5;
                     a->costobajaacum ++;
                     if((*a).bMax < a->costobajatemp){
                         (*a).bMax = a->costobajatemp;
@@ -186,7 +186,7 @@ int bajaABB(arbol *a,Envio envio)
 
                 else
                     (*a).raiz = aux;
-                a->costobajatemp+= 1;
+                a->costobajatemp+= 0.5;
                 a->costobajaacum ++;
 
                 if((*a).bMax < a->costobajatemp){
@@ -197,10 +197,10 @@ int bajaABB(arbol *a,Envio envio)
                 (*a).bMed = a->costobajaacum/((*a).bCant);
                 return 1;
             }
-            else if((*a).padre == (*a).pos)
+            else if((*a).padre == (*a).pos)//caso raiz
             {
                 (*a).raiz = NULL;
-                a->costobajatemp+= 1;
+                a->costobajatemp+= 0.5;
                 a->costobajaacum ++;
                 if((*a).bMax < a->costobajatemp){
                     (*a).bMax = a->costobajatemp;
@@ -213,7 +213,7 @@ int bajaABB(arbol *a,Envio envio)
             else if((*a).padre->izq == (*a).pos) //no tiene hijos
             {
                 (*a).padre->izq = NULL;
-                a->costobajatemp+= 1;
+                a->costobajatemp+= 0.5;
                 a->costobajaacum ++;
                 if((*a).bMax < a->costobajatemp){
                     (*a).bMax = a->costobajatemp;
@@ -226,7 +226,7 @@ int bajaABB(arbol *a,Envio envio)
             else
             {
                 (*a).padre->der = NULL;
-                a->costobajatemp+= 1;
+                a->costobajatemp+= 0.5;
                 a->costobajaacum ++;
                 if((*a).bMax < a->costobajatemp){
                     (*a).bMax = a->costobajatemp;

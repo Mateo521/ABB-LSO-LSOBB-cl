@@ -48,54 +48,31 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
     int inicio = -1;  // Limite inferior exclusivo
     int fin = lista->contador - 1;  // Limite superior inclusivo
 
-    while (inicio < fin) {
+    while (inicio+1 < fin) {
         temp++;
-
         int medio = (inicio + fin + 1) / 2;
-
         int comparacion = strcmp(lista->envios[medio].codigo, codigo);
-
-        if (comparacion == 0) {
-
-            if(p==0){
-
-                if(lista->eExMax<temp){
-                    lista->eExMax = temp;
-                }
-                lista->eExCant++;
-                lista->costoEvoE+=temp;
-                lista->tempe+=lista->costoEvoE;
-                lista->eExMed = lista->tempe/(lista->eExCant+1);
-
-            }
-
-
-
-            *pos = medio;
-            return 1; // Encontrado
-        } else if (comparacion < 0) {
-
-
+      if(comparacion <= 0) {
             if(p==0){
                 if(lista->eFrMax<temp){
                     lista->eFrMax = temp;
                 }
-
                 lista->eFrCant++;
                 lista->costoEvoF+=temp;
                 lista->tempef+=lista->costoEvoF;
                 lista->eFrMed = lista->tempef/(lista->eFrCant+1);
-
             }
-
-
-            inicio = medio;
+            inicio = medio-1;
         } else {
             fin = medio - 1;
         }
     }
-
     *pos = inicio + 1;
+    if(strcmp(lista->envios[*pos].codigo, codigo)!=0){
+        return 1;
+    }
+    //preguntar si es el elemento para devolver fracaso
+    //consultar si es mayor o no en el fracaso
     return 0;
 }
 

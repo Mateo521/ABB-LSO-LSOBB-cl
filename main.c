@@ -206,7 +206,7 @@ int LecturaOperaciones(lso *lso,arbol *arbol, lsobb *lsobb)
                 {
                     //  mostrarenvio(aux);
                     AltaLSO(lso, aux);
-                    AltaLSOBB(lsobb,aux);
+                   AltaLSOBB(lsobb,aux);
 
                     altaABB(arbol,aux);
 
@@ -221,7 +221,7 @@ int LecturaOperaciones(lso *lso,arbol *arbol, lsobb *lsobb)
 
                     bajaABB(arbol,aux);
 
-                    BajaLSOBB(lsobb,aux);
+                   BajaLSOBB(lsobb,aux);
 
                     BajaLSO(lso,aux);
 
