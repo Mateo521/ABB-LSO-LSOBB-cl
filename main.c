@@ -12,6 +12,7 @@ char* Mayusculas();
 void mostrarestructura();
 void mostrarSubmenu()
 {
+
     printf("--Submenu--\n");
     printf("1. Mostrar Lista Secuencial Ordenada (LSO)\n");
     printf("2. Mostrar Lista Secuencial con Busqueda Binaria (LSOBB)\n");
@@ -133,6 +134,7 @@ int main()
                             // Volver
                             break;
                         default:
+                            system("cls");
                             printf("Opcion no valida. Intente de nuevo.\n");
                     }
                 }

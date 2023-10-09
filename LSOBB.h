@@ -14,6 +14,7 @@ char *Mayusculas(char string[]);
 typedef struct {
     Envio envios [MAX_Envios];
     int contador;
+   int vector_aux[MAX_Envios];
     float eExMax, eExMed, eFrMax, eFrMed, aMax, aMed, bMax, bMed, celCont,tempa,tempb, eExCant,eFrCant,aCant,bCant,costo,costoEvoE,costoEvoF,tempe,tempef;
 }lsobb;
 
@@ -28,8 +29,8 @@ void initLSOBB(lso *lista) {
     lista->bMax = 0.0;
     lista->bMed = 0.0;
     lista->celCont = 0.0;
-    lista->eExCant = 0;
-    lista->eFrCant = 0;
+    lista->eExCant = 0.0;
+    lista->eFrCant = 0.0;
     lista->aCant = 0.0;
     lista->bCant = 0.0;
     lista->tempa = 0.0;
@@ -40,24 +41,40 @@ void initLSOBB(lso *lista) {
 
 
 int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
-    int inicio = -1;             // Limite inferior exclusivo
-    int fin = lista->contador;   // Limite superior inclusivo
+    int inicio = -1, medio = 0, comparacion = 0;             // Limite inferior exclusivo
+    int fin = lista->contador-1;   // Limite superior inclusivo
+
+
     lista->costoEvoE=0.0;
     lista->costoEvoF=0.0;
-    float temp =0.0;
 
+
+    float temp =0.0;
+    if(lista->contador==0){
+        return 0;
+    }
     while (inicio + 1 < fin) {
+
         temp++;
-        int medio = (inicio + fin) / 2;
-        int comparacion = strcmp(lista->envios[medio].codigo, codigo);
-        if (comparacion < 0) {
-            inicio = medio;
+
+
+        medio = (inicio + fin + 1) / 2;
+        comparacion = strcmp(lista->envios[medio].codigo, codigo);
+        printf("%d\n", comparacion);
+        if (comparacion <= 0) {
+            inicio = medio -1;
         } else {
-            fin = medio;
+            fin = medio -1;
         }
     }
-    *pos = fin; // Posición de inserción si no se encontró el elemento
-    if (*pos < lista->contador && strcmp(lista->envios[*pos].codigo, codigo) == 0) {
+    //vector auxiliar
+    if(lista->vector_aux[inicio+1] == 0){
+        temp++;
+        lista->vector_aux[inicio+1]+=1;
+    }
+   // Posición de inserción si no se encontró el elemento
+   printf("%d", fin);
+    if (strcmp(lista->envios[fin].codigo, codigo) == 0) {
         if(p==0){
             if(lista->eExMax<temp){
                 lista->eExMax = temp;
@@ -67,6 +84,7 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
             lista->tempe+=lista->costoEvoE;
             lista->eExMed = lista->tempe/(lista->eExCant);
         }
+        *pos = fin;
         return 1; // Elemento encontrado
     } else {
         if(p==0){
@@ -78,7 +96,7 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
             lista->tempef+=lista->costoEvoF;
             lista->eFrMed = lista->tempef/(lista->eFrCant);
         }
-
+        *pos = fin+1;
         return 0; // Elemento no encontrado
     }
 }
@@ -126,7 +144,7 @@ int AltaLSOBB(lsobb *lista, Envio envio) {
 
 
     lista->costo =0.0;
-    int pos;
+    int pos=0;
 
     if (lista->contador == MAX_Envios) {
         return 2; // Lista llena
