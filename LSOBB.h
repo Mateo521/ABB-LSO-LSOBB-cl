@@ -2,6 +2,7 @@
 
 #include "Envios.h"
 #include <String.h>
+#include <math.h>
 #ifndef UNTITLED_LSO_H
 #define UNTITLED_LSO_H
 #define MAX_Envios 300
@@ -41,8 +42,8 @@ void initLSOBB(lso *lista) {
 
 
 int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
-    int inicio = -1, medio = 0, comparacion = 0;             // Limite inferior exclusivo
-    int fin = lista->contador - 1;   // Limite superior inclusivo
+    float inicio = -1, medio = 0, comparacion = 0;             // Limite inferior exclusivo
+    float fin = lista->contador - 1;   // Limite superior inclusivo
 
 
     lista->costoEvoE=0.0;
@@ -53,25 +54,36 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
     if(lista->contador==0){
         return 0;
     }
-    while (inicio < fin) {
+    while (inicio+1 < fin) {
         temp++;
-        medio = (inicio + fin + 1) / 2;
-        comparacion = strcmp(lista->envios[medio].codigo, codigo);
-        if (comparacion <= 0) {
-            inicio = medio;
+        medio = ceil((inicio + fin + 1) / 2);
+
+
+        comparacion = strcmp( lista->envios[(int)medio].codigo, codigo);
+
+
+        if (comparacion > 0) {
+
+            fin = medio-1;
+
         } else {
-            fin = medio - 1;
+
+            inicio = medio - 1;
+
         }
+
+
     }
+
     //vector auxiliar
-    if(lista->vector_aux[inicio+1] == 0){
+    if(lista->vector_aux[(int)inicio+1] == 0){
         temp++;
-        lista->vector_aux[inicio+1]+=1;
+        lista->vector_aux[(int)inicio+1]+=1;
 
     }
    // Posición de inserción si no se encontró el elemento
 
-    if (strcmp(lista->envios[fin].codigo, codigo) == 0) {
+    if (strcmp(lista->envios[(int)fin].codigo, codigo) == 0) {
         if(p==0){
             if(lista->eExMax<temp){
                 lista->eExMax = temp-1;
@@ -81,7 +93,7 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
             lista->tempe+=lista->costoEvoE;
             lista->eExMed = lista->tempe/(lista->eExCant);
         }
-        *pos = fin;
+        *pos = (int)fin;
         return 1; // Elemento encontrado
     } else {
         if(p==0){
@@ -93,7 +105,7 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
             lista->tempef+=lista->costoEvoF;
             lista->eFrMed = lista->tempef/(lista->eFrCant);
         }
-        *pos = fin+1;
+        *pos = (int)fin+1;
         return 0; // Elemento no encontrado
     }
 }

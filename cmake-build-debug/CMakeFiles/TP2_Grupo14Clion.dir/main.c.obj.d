@@ -1,5 +1,5 @@
 CMakeFiles/TP2_Grupo14Clion.dir/main.c.obj: \
- C:\Users\mateo\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\main.c \
+ C:\Users\lautaro\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -24,12 +24,13 @@ CMakeFiles/TP2_Grupo14Clion.dir/main.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- C:\Users\mateo\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\Envios.h \
- C:\Users\mateo\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\LSO.h \
+ C:\Users\lautaro\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\Envios.h \
+ C:\Users\lautaro\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\LSO.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/string.h \
- C:\Users\mateo\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\ABB.h \
+ C:\Users\lautaro\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\ABB.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/conio.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/conio_s.h \
- C:\Users\mateo\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\LSOBB.h
+ C:\Users\lautaro\OneDrive\Escritorio\ABB-LSO-LSOBB-cl\LSOBB.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.2/bin/mingw/x86_64-w64-mingw32/include/math.h

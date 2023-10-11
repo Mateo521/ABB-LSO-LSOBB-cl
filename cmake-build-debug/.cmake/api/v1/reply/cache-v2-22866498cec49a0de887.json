@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug"
+			"value" : "c:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -547,7 +547,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl"
+			"value" : "C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1167,7 +1167,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug"
+			"value" : "C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/cmake-build-debug"
 		},
 		{
 			"name" : "TP2_Grupo14Clion_IS_TOP_LEVEL",
@@ -1191,7 +1191,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/mateo/OneDrive/Escritorio/ABB-LSO-LSOBB-cl"
+			"value" : "C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
