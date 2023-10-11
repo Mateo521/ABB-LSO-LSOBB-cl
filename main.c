@@ -162,7 +162,7 @@ int LecturaOperaciones(lso *lso,arbol *arbol, lsobb *lsobb)
     Envio aux;
     FILE* fp;
 
-    if ((fp = fopen(/*"Operaciones-Envios.txt"*/"C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/Operaciones-Envios.txt", "r")) == NULL)
+    if ((fp = fopen(/*"Operaciones-Envios.txt"*/"C:/Users/lautaro/OneDrive/Escritorio/ABB-LSO-LSOBB-cl/prueba.txt", "r")) == NULL)
     {
         printf("No se pudo abrir el archivo");
         return 0;

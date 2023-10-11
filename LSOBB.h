@@ -70,6 +70,12 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
 
             inicio = medio - 1;
 
+            if (strcmp((*lista).envios[(int)fin].codigo,codigo)>0){
+                (*pos)=fin;
+            }else{
+                (*pos)=fin+1;
+                }
+
         }
 
 
@@ -109,121 +115,7 @@ int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
         return 0; // Elemento no encontrado
     }
 }
-/*
- *
- *
- * int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
-    int inicio = -1, medio = 0, comparacion = 0;             // Limite inferior exclusivo
-    int fin = lista->contador - 1;   // Limite superior inclusivo
-    if(lista->contador==0){
-        return 0;
-    }
-    while (inicio < fin) {
-        medio = (inicio + fin + 1) / 2;
-        comparacion = strcmp(lista->envios[medio].codigo, codigo);
-        if (comparacion < 0) {
-            inicio = medio;
-        } else {
-            fin = medio - 1;
-        }
-    }
-   // Posición de inserción si no se encontró el elemento
-    if (strcmp(lista->envios[fin].codigo, codigo) == 0) {
-        *pos = fin;
-        return 1; // Elemento encontrado
-    } else {
-        *pos = fin+1;
-        return 0; // Elemento no encontrado
-    }
-}
- *
- *
- *
-int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos) {
-    int inicio = -1;  // Limite inferior exclusivo
-    int fin = lista->contador;  // Limite superior inclusivo
 
-    while (inicio+1 < fin) {
-        int medio = (inicio + fin) / 2;
-        int comparacion = strcmp(lista->envios[medio].codigo, codigo);
-        if(comparacion < 0) { //cambio
-            inicio = medio; //cambio
-        } else {
-            fin = medio ; //cambio
-        }
-    }
-    *pos = inicio; //cambio
-    if (*pos < lista->contador && strcmp(lista->envios[*pos].codigo, codigo) == 0) {
-        return 1; // Elemento encontrado
-    } else {
-        return 0; // Elemento no encontrado
-    }
-    //preguntar si es el elemento para devolver fracaso
-    //consultar si es mayor o no en el fracaso
-    return 0;
-}
-
- int LocalizarLSOBB(lsobb *lista, char codigo[], int *pos, int p) {
-    int inicio = -1, medio = 0, comparacion = 0;             // Limite inferior exclusivo
-    int fin = lista->contador-1;   // Limite superior inclusivo
-
-
-    lista->costoEvoE=0.0;
-    lista->costoEvoF=0.0;
-
-
-    float temp =0.0;
-    if(lista->contador==0){
-        return 0;
-    }
-    while (inicio + 1 < fin) {
-
-        temp++;
-
-
-        medio = (inicio + fin + 1) / 2;
-        comparacion = strcmp(lista->envios[medio].codigo, codigo);
-        printf("%d\n", comparacion);
-        if (comparacion <= 0) {
-            inicio = medio -1;
-        } else {
-            fin = medio -1;
-        }
-    }
-    //vector auxiliar
-    if(lista->vector_aux[inicio+1] == 0){
-        temp++;
-        lista->vector_aux[inicio+1]+=1;
-    }
-   // Posición de inserción si no se encontró el elemento
-   printf("%d", fin);
-    if (strcmp(lista->envios[fin].codigo, codigo) == 0) {
-        if(p==0){
-            if(lista->eExMax<temp){
-                lista->eExMax = temp;
-            }
-            lista->eExCant++;
-            lista->costoEvoE+=temp;
-            lista->tempe+=lista->costoEvoE;
-            lista->eExMed = lista->tempe/(lista->eExCant);
-        }
-        *pos = fin;
-        return 1; // Elemento encontrado
-    } else {
-        if(p==0){
-            if(lista->eFrMax<temp){
-                lista->eFrMax = temp;
-            }
-            lista->eFrCant++;
-            lista->costoEvoF+=temp;
-            lista->tempef+=lista->costoEvoF;
-            lista->eFrMed = lista->tempef/(lista->eFrCant);
-        }
-        *pos = fin+1;
-        return 0; // Elemento no encontrado
-    }
-}
-*/
 int AltaLSOBB(lsobb *lista, Envio envio) {
 
 
